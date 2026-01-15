@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Productivity Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Student Productivity Dashboard</h1>
+        <p class="subtitle">Plan, Track, and Achieve Your Goals</p>
+    </header>
+
+    <!-- Statistics Section -->
+    <section class="stats-container">
+        <div class="stat-box total">
+            <h3>Total Tasks</h3>
+            <div class="stat-number" id="total-tasks">0</div>
+            <p>All academic items</p>
+        </div>
+        <div class="stat-box completed">
+            <h3>Completed</h3>
+            <div class="stat-number" id="completed-tasks">0</div>
+            <p>Finished tasks</p>
+        </div>
+        <div class="stat-box pending">
+            <h3>Pending</h3>
+            <div class="stat-number" id="pending-tasks">0</div>
+            <p>Tasks to complete</p>
+        </div>
+    </section>
+
+    <!-- Progress Bar Section -->
+    <section class="progress-container">
+        <div class="progress-header">
+            <h3 class="progress-title">Overall Progress</h3>
+            <div class="progress-percentage" id="progress-percent">0%</div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-stats">
+            <span>📊 Progress: <span id="completed-count">0</span>/<span id="total-count">0</span> tasks</span>
+            <span>⏳ Remaining: <span id="remaining-count">0</span> tasks</span>
+        </div>
+    </section>
+
+    <!-- Input Form -->
+    <section class="input-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="task-title">Task Title *</label>
+                <input type="text" id="task-title" placeholder="Enter task title...">
+            </div>
+            <div class="form-group">
+                <label for="task-category">Category</label>
+                <select id="task-category">
+                    <option value="kuliah">Kuliah</option>
+                    <option value="praktikum">Praktikum</option>
+                    <option value="tugas">Tugas</option>
+                    <option value="ujian">Ujian</option>
+                    <option value="pr">PR</option>
+                    <option value="catatan">Catatan</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="task-date">Due Date</label>
+                <input type="date" id="task-date">
+            </div>
+            <div class="form-group">
+                <label>Priority Level</label>
+                <div class="priority-selector">
+                    <button type="button" class="priority-btn low" data-priority="low">Low</button>
+                    <button type="button" class="priority-btn medium" data-priority="medium">Medium</button>
+                    <button type="button" class="priority-btn high" data-priority="high">High</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea id="task-description" placeholder="Enter task description..."></textarea>
+        </div>
+
+        <button id="add-btn">Add Task</button>
+    </section>
+
+    <!-- Task List -->
+    <section class="task-list-container">
+        <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">All Tasks</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button class="filter-btn" data-filter="high">High Priority</button>
+            <button class="filter-btn" data-filter="today">Today</button>
+        </div>
+
+        <div class="sort-options">
+            <button class="sort-btn" data-sort="priority">
+                🔼 Sort by Priority
+            </button>
+            <button class="sort-btn" data-sort="deadline">
+                📅 Sort by Deadline
+            </button>
+            <button class="sort-btn" data-sort="created">
+                ⏰ Sort by Created
+            </button>
+            <div class="sort-info" id="sort-info">
+                Sorted by: Created Date (Newest First)
+            </div>
+        </div>
+
+        <ul class="task-list" id="task-list">
+            <!-- Tasks will be added here dynamically -->
+        </ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
